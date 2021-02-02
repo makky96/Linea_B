@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8" />
+<head>
+<link rel="stylesheet"
+href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+<style>
+#map {
+width: 100%;
+height: 600px;
+box-shadow: 5px 5px 5px #888;
+}
+</style>
+</head>
+<body>
+<div id="map"></div>
+<script>
+var osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a>'
++ 'contributors', maxZoom: 18
+});
+var map = L.map('map', {
+center: [1.6201816037286574, -75.60988426208498],
+zoom: 13,
+layers: osm,
+scrollWheelZoom: true,
+});
+
+var marker = L.marker([ 1.620214, -75.604252],{
+draggable: true,
+title: 'Click Aqui'
+}).addTo(map)
+.bindPopup('Universidad de la Amázonia')
+.openPopup();
+
+var marker2 = L.marker([ 1.615107, -75.613809],{
+draggable: true,
+title: 'Click Aqui'
+}).addTo(map)
+.bindPopup('Alcaldia de Florencia')
+.openPopup();
+
+var marker3 = L.marker([ 1.614986, -75.613307],{
+draggable: true,
+title: 'Click Aqui'
+}).addTo(map)
+.bindPopup('Plaza Santander')
+.openPopup();
+
+var marker4 = L.marker([ 1.602824, -75.579009],{
+draggable: true,
+title: 'Click Aqui'
+}).addTo(map)
+.bindPopup('Mi Casa')
+.openPopup();
+
+var circle = L.circle([1.615107, -75.613809], 500, { color: 'green',
+fillColor: '#99FA22',
+fillOpacity: 0.5
+}).addTo(map)
+circle.bindPopup("Centro de Florencia");
+
+var polygon = L.polygon([
+[1.6147228020276463, -75.61286687850954],
+[1.6145404842322766, -75.61349987983705],
+[1.615162509584444,  -75.61370372772218],
+[1.6153662764687597, -75.61305999755861]
+]).addTo(map)
+.bindPopup ('Plaza Santander');
+
+var point1 = new L.LatLng(1.602819, -75.579069); 
+var point2 = new L.LatLng(1.602103, -75.578291); 
+var point3 = new L.LatLng(1.602795, -75.577697);
+var point4 = new L.LatLng(1.604067, -75.579202);
+var point5 = new L.LatLng(1.604182, -75.579535);
+var point6 = new L.LatLng(1.604151, -75.579975);
+var point7 = new L.LatLng(1.603136, -75.585126);
+var point8 = new L.LatLng(1.603011, -75.585527);
+var point9 = new L.LatLng(1.602039, -75.590100);
+var point10 = new L.latLng(1.601996, -75.590635);
+var point11 = new L.latLng(1.602236, -75.591475);
+var point12 = new L.latLng(1.604270, -75.595828);
+var point13 = new L.latLng(1.604734, -75.596613);
+var point14 = new L.latLng(1.605219, -75.597473);
+var point15 = new L.latLng(1.606176, -75.598571);
+var point16 = new L.latLng(1.606467, -75.598859);
+var point17 = new L.latLng(1.606485, -75.599731);
+var point18 = new L.latLng(1.606888, -75.600900);
+var point19 = new L.latLng(1.607295, -75.601737);
+var point20 = new L.latLng(1.607716, -75.602584);
+var point21 = new L.latLng(1.608512, -75.604302);
+var point22 = new L.latLng(1.609280, -75.604178);
+var point23 = new L.latLng(1.610243, -75.604101);
+var point24 = new L.latLng(1.610492, -75.604280);
+var point25 = new L.latLng(1.612642, -75.606070);
+var point26 = new L.latLng(1.613086, -75.606108);
+var point27 = new L.latLng(1.613146, -75.606096);
+var point28 = new L.latLng(1.613465, -75.605964);
+var point29 = new L.latLng(1.615076, -75.604329);
+var point30 = new L.latLng(1.615478, -75.604105);
+var point31 = new L.latLng(1.615789, -75.604417);
+var point32 = new L.latLng(1.617844, -75.605721);
+var point33 = new L.latLng(1.618850, -75.606423);
+var point34 = new L.latLng(1.620137, -75.605137);
+
+
+var latlngs = [point1, point2, point3, point4, point5, point6, point7, point8, point9, point10,
+            point11, point12, point13, point14, point15, point16, point17, point18, point19, point20, 
+            point21, point22, point23, point24, point25, point26, point27, point28, point29, point30, 
+            point31, point32, point33, point34];
+
+var polyline = L.polyline(
+latlngs, {color: '#E900F5'}
+)
+.addTo(map)
+.bindPopup ('mi casa - Universidad');
+map.doubleClickZoom.disable()
+
+L.control.scale({
+position: 'bottomright',
+imperial: false
+}).addTo(map);
+</script>
+</body>
+</html>
